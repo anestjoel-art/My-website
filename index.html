@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Modern Business Website Demo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 25px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff9800;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #111;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .contact-box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      max-width: 700px;
+      margin: 30px auto 0;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    form button {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 25px 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 32px;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Grow Your Business Online</h1>
+    <p>We build modern, professional websites that help local businesses attract more customers and look more trusted online.</p>
+    <a href="#contact" class="btn">Get a Free Quote</a>
+  </header>
+
+  <section class="section">
+    <h2 style="text-align:center; margin-bottom:15px;">Our Services</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      Simple, affordable solutions for businesses that want more customers and a stronger online presence.
+    </p>
+
+    <div class="services">
+      <div class="card">
+        <h3>Business Websites</h3>
+        <p>Professional websites designed to make your business look modern and trustworthy.</p>
+      </div>
+      <div class="card">
+        <h3>Landing Pages</h3>
+        <p>High-converting pages built to collect leads, phone calls, and customer inquiries.</p>
+      </div>
+      <div class="card">
+        <h3>Website Redesign</h3>
+        <p>We improve outdated websites and turn them into clean, mobile-friendly experiences.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="about">
+      <div>
+        <h2 style="margin-bottom:15px;">Why Businesses Choose Us</h2>
+        <p style="margin-bottom:15px;">
+          A strong website helps people trust your business before they even contact you.
+        </p>
+        <p style="margin-bottom:15px;">
+          We focus on clean design, mobile responsiveness, and a simple structure that makes it easy for customers to take action.
+        </p>
+        <p>
+          Whether you need a new website or a refresh of your current one, we can help you stand out.
+        </p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Business website">
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2 style="text-align:center; margin-bottom:15px;">Get in Touch</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      Tell us about your business and we’ll get back to you.
+    </p>
+
+    <div class="contact-box">
+      <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Your Email" required />
+        <input type="text" id="business" placeholder="Business Name" required />
+        <textarea id="message" rows="5" placeholder="Tell us what you need" required></textarea>
+        <button type="submit">Send Request</button>
+      </form>
+      <p id="successMsg" style="margin-top:15px; color:green; font-weight:bold;"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Modern Business Demo. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function sendMessage(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const business = document.getElementById("business").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !business || !message) {
+        alert("Please fill in all fields.");
+        return;
+      }
+
+      document.getElementById("successMsg").textContent =
+        "Thanks! Your request has been sent successfully.";
+
+      event.target.reset();
+    }
+  </script>
+
+</body>
+</html>
